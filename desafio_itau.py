@@ -108,17 +108,17 @@ def clean_and_feature_engineer(df: pd.DataFrame) -> Optional[pd.DataFrame]:
     print("Contagem de regiões:\n", df_final['regiao'].value_counts())
     return df_final
 
-def generate_exploratory_plot(df: pd.DataFrame):
-    """Gera e salva o gráfico de análise exploratória."""
-    print("\n--- ETAPA 2.5: GERANDO ANÁLISE EXPLORATÓRIA VISUAL ---")
-    plt.style.use('seaborn-v0_8-whitegrid')
-    g = sns.lmplot(data=df, x='vcpu', y='preco_hora', hue='regiao', x_estimator=np.mean, height=7, aspect=1.5, palette='viridis')
-    g.fig.suptitle('Tendência de Custo Médio por Quantidade de vCPUs', fontsize=18, y=1.03, weight='bold')
-    g.set_axis_labels('Quantidade de vCPUs', 'Custo Médio por Hora (USD)', fontsize=14)
-    g.legend.set_title("Região")
-    plt.savefig(CONFIG["exploratory_plot_path"], dpi=300)
-    plt.close()
-    print(f"Gráfico exploratório salvo em: {CONFIG['exploratory_plot_path']}")
+# def generate_exploratory_plot(df: pd.DataFrame):
+#     """Gera e salva o gráfico de análise exploratória."""
+#     print("\n--- ETAPA 2.5: GERANDO ANÁLISE EXPLORATÓRIA VISUAL ---")
+#     plt.style.use('seaborn-v0_8-whitegrid')
+#     g = sns.lmplot(data=df, x='vcpu', y='preco_hora', hue='regiao', x_estimator=np.mean, height=7, aspect=1.5, palette='viridis')
+#     g.fig.suptitle('Tendência de Custo Médio por Quantidade de vCPUs', fontsize=18, y=1.03, weight='bold')
+#     g.set_axis_labels('Quantidade de vCPUs', 'Custo Médio por Hora (USD)', fontsize=14)
+#     g.legend.set_title("Região")
+#     plt.savefig(CONFIG["exploratory_plot_path"], dpi=300)
+#     plt.close()
+#     print(f"Gráfico exploratório salvo em: {CONFIG['exploratory_plot_path']}")
 
 def train_model(df: pd.DataFrame) -> Tuple[object, pd.DataFrame, pd.DataFrame, np.ndarray, float, float]:
     """Prepara os dados, treina o modelo e retorna os resultados."""
@@ -199,8 +199,8 @@ def main():
     if final_df is None:
         return
 
-    # 3. Análise Exploratória
-    generate_exploratory_plot(final_df)
+    # # 3. Análise Exploratória
+    # generate_exploratory_plot(final_df)
 
     # 4. Treinamento do Modelo
     model, X_test, y_test, predictions, mse, r2 = train_model(final_df)

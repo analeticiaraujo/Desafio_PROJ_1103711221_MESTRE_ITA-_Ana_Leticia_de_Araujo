@@ -9,4 +9,3 @@
 # - Normaliza os finais de linha (text).
 # - Usa uma ferramenta de diff amigável (requer 'nbdime').
 *.ipynb text diff=jupyter
-

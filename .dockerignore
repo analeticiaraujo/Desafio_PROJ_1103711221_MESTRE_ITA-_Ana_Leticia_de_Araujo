@@ -1,0 +1,17 @@
+# Ignorar arquivos do Git
+.git
+.gitignore
+.gitattributes
+
+# Ignorar caches e ambientes virtuais
+__pycache__
+.ipynb_checkpoints
+venv/
+*.env
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar o próprio Dockerfile
+Dockerfile
