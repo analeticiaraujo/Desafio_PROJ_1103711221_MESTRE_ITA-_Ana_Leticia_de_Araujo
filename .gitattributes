@@ -1,2 +1,12 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Garante a consistência dos finais de linha (LF) em todos os arquivos de texto,
+# evitando problemas entre Windows, Mac e Linux.
+* text=auto eol=lf
+
+# Trata arquivos de imagem como binários, prevenindo corrupção.
+*.png binary
+
+# Define o comportamento para Jupyter Notebooks:
+# - Normaliza os finais de linha (text).
+# - Usa uma ferramenta de diff amigável (requer 'nbdime').
+*.ipynb text diff=jupyter
+
